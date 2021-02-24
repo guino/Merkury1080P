@@ -130,6 +130,7 @@ Here you can find the files required to hack (root) the camera using the steps d
 * Copy the 3 files posted [here](https://github.com/guino/Merkury1080P/tree/main/mmc) **over** of the mmc files on the SD card from the original instructions
 * Create the ppsFactoryTool.txt file as described in the original instructions so you enable the http server for URLs like http://admin:056565099@IP:8090/proc/cmdline
 * Make sure to add **:8090** to each URL in the original instructions (as I did in the previous link)
+* It has been pointed out that some of the URLs (i.e. /devices/deviceinfo) have user/password admin:admin like: http://admin:admin@IP:8090/devices/deviceinfo so if you can't get a URL to open with admin:056565099, try admin:admin as well (I don't have the device to know which URLs use which user/password combination)
 
 If you have a different ppsapp feel free to open an issue and request it to be patched, I just ask that you include the response of http://admin:056565099@IP:8090/devices/deviceinfo with the ppsapp (zip) file so I can create a patch for it.
 
