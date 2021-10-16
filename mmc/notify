@@ -1,0 +1,55 @@
+#!/bin/sh
+# motion.sh
+# kenny@beardedtux.com
+# GitHub: williamkennyAK
+#
+# Parses ppsapp logs for keyword to trigger local motion notifications
+# Generates motion alerts from tuya linux based cameras
+# https://github.com/williamkennyAK/Merkury1080P
+# https://github.com/guino/Merkury1080P
+# https://github.com/guino/Merkury720
+#
+# usage:
+#
+# /mnt/mmc01/ppsapp | /mnt/mmc01/motion.sh <keyword> <worker> <logfile> <loglevel>
+# * denotes required
+# * keyword       - keyword to look for in ppsapp logs
+# * worker        - script or binary that executes notifications
+# * logdir        - /full/path/to/log/dir
+# * loglevel      - 0: silent
+#                   1: motion detected only
+#                   2: motion detected and worker output
+#                   3: EVERYTHING ** use this sparingly as it can build up quickly **
+#                      It's main use is to figure out the keyword to use
+keyword=$1
+worker=$2
+workerlog="$3/worker.log"
+log="$3/notify.log"
+debuglog="$3/debug.log"
+loglevel=$4
+while true; do
+    read -r BUF;
+    case "$BUF" in
+        *"${keyword}"*)
+            case $loglevel in
+                "1")
+                    echo "############# MOTION DETECTED #############" >> $log
+                    $worker
+                    ;;
+                "2"|"3")
+                    echo "############# MOTION DETECTED #############" >> $log
+                    echo "${BUF} >> $log
+                    echo "############## WORKER LOGGED ##############" >> $log
+                    workerOutput=$($worker)
+                    echo $workerOutput >> $log
+                    echo $workerOutput >> $workerlog
+;;
+            esac
+            ;;
+    esac
+    case "$loglevel" in
+        "3")
+            #echo "${BUF}" >> $log
+            ;;
+    esac
+done
