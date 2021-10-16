@@ -1,0 +1,13 @@
+#!/bin/sh
+# executes mosquitto_pub to publish to mqtt
+
+# MQTT Host
+mqtt_h="192.168.2.143"
+
+# MQTT Topic
+mqtt_t="home/doorbell/motion"
+
+# MQTT Message
+mqtt_m="detected"
+
+/mnt/mmc01/mosquitto_pub -h $mqtt_host -m $mqtt_m -t $mqtt_t

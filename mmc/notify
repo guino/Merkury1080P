@@ -15,6 +15,12 @@
 # * denotes required
 # * keyword       - keyword to look for in ppsapp logs
 # * worker        - script or binary that executes notifications
+#                   There are 2 built-in options.  You can also create or add your own
+#                   mqtt - publish with mqtt
+#                            - edit parameters in mqtt prior to use
+#                   post - post a webhook (Designed for Home Assistant)
+#                            - edit parameters in post prior to use
+#
 # * logdir        - /full/path/to/log/dir
 # * loglevel      - 0: silent
 #                   1: motion detected only

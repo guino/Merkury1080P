@@ -1,0 +1,30 @@
+#!/bin/sh
+# IP Address or URL of server
+HOST="192.168.1.100
+"
+# Port Number
+PORT="8123"
+
+# API PATH ****** MUST INCLUDE PREVAILING AND TRAILING /
+API_PATH="/api/webhook/"
+
+# WEBHOOK IDENTIFIER
+WEBHOOK="driveway_motion"
+
+# BUILD THE URL.  Change to https if needed...
+POST_PATH="${API_PATH}${WEBHOOK}"
+
+# Pretty much anything can go here including a JSON payload
+BODY="{ \"event\": \"motion\",\"camera\": \"driveway\",\"timestamp\": \"$(date)\" }"
+echo $BODY
+
+# echo out that we did something...
+echo "$(date) -- http://${HOST}:${PORT}${API_PATH}${WEBHOOK}"
+
+# We need to find out the length of the body to properly post data...
+BODY_LEN=$(echo -n "${BODY}" | /mnt/mmc01/busybox wc -c)
+echo -ne "POST ${POST_PATH} HTTP/1.0\r\nHost: ${HOST}\r\nContent-Type: application/json\r\nContent-Length: ${BODY_LEN}\r\n\r\n${BODY}" | \
+/mnt/mmc01/busybox nc -i 3 ${HOST} ${PORT}
+
+# echo the log entry out
+echo "$(date) -- ${HOST}:${PORT}${API_PATH}${WEBHOOK}"
