@@ -1,5 +1,13 @@
 ## Merkury1080P (CW017) Rooting and Customization
 
+
+### THIS IS A FORK of https://github.com/guino/Merkury1080P/
+Follow instructions below except all files from https://github.com/guino/Merkury720/mmc/ are included as the instructions below noted.
+
+I used this busybox for my best results.
+https://busybox.net/downloads/binaries/1.21.1/busybox-armv5l
+
+
 ### TL;DR
 
 You can jump to the **Conclusion** section all the way at the bottom if you just want to the steps to root the camera (and don't care about the details on how we got to them).
