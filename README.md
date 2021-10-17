@@ -2,11 +2,16 @@
 
 
 ### THIS IS A FORK of https://github.com/guino/Merkury1080P/
-Follow instructions below except all files from https://github.com/guino/Merkury720/mmc/ are included as the instructions below noted.
+Follow instructions except all files from https://github.com/guino/Merkury720/mmc/ are included as the instructions below noted.
 
 I used this busybox for my best results.
 https://busybox.net/downloads/binaries/1.21.1/busybox-armv5l
 
+Added web interface to control:
+ - Motion Notifications
+ - FTP server
+ - Reboot Device
+ - Integrated upload.html and upload.cgi into web interface
 
 ### TL;DR
 
