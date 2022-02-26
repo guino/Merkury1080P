@@ -4,7 +4,7 @@
 if [ ! -e /mnt/mmc01/home ]; then 
  MTDNUM=`cat /proc/cmdline | sed 's/.*ppsAppParts=\([0-9]\).*/\1/'`
  mount -t cramfs /dev/mtdblock$MTDNUM /opt/pps
- tar xzf /opt/pps/app.tar.gz -C /mnt/mmc01/
+ tar xf /opt/pps/app.* -C /mnt/mmc01/
 fi
 
 # Now flag the hack is done
