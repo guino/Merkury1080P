@@ -131,6 +131,7 @@ Here you can find the files required to hack (root) the camera using the steps d
 * Create the ppsFactoryTool.txt file as described in the original instructions so you enable the http server for URLs like http://admin:056565099@IP:8090/proc/cmdline
 * Make sure to add **:8090** to each URL in the original instructions (as I did in the previous link)
 * It has been pointed out that some of the URLs (i.e. /devices/deviceinfo) have user/password admin:admin like: http://admin:admin@IP:8090/devices/deviceinfo so if you can't get a URL to open with admin:056565099, try admin:admin as well (I don't have the device to know which URLs use which user/password combination)
+* The vlc command and URL for RTSP should be ```vlc --rtsp-tcp rtsp://admin:admin@ip:8554/Streaming/Channels/101``` (instead of rtsp://ip:8554 for 720P)
 
 If you have a different ppsapp feel free to open an issue and request it to be patched, I just ask that you include the response of http://admin:056565099@IP:8090/devices/deviceinfo with the ppsapp (zip) file so I can create a patch for it.
 
