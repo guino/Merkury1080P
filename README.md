@@ -2,7 +2,7 @@
 
 ### TL;DR
 
-You can jump to the **Conclusion** section all the way at the bottom if you just want to the steps to root the camera (and don't care about the details on how we got to them).
+You can jump to the **[Conclusion](https://github.com/guino/Merkury1080P#conclusion)** section all the way at the bottom if you just want to the steps to root the camera (and don't care about the details on how we got to them).
 
 #### Summary
 
